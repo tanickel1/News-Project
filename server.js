@@ -21,3 +21,29 @@ app.use(express.static(process.cwd() +'/public'));
 app.engine('handlebars', exphbs({defaulLayout: "main"}));
 app.set('view engine', 'handlebars');
 
+if(process.env.NODE_ENV == 'production'){
+    mongoose.connect('mongodb://linkfor heroku app')
+}
+else {
+    mongoose.connect('mongodb://localhost/news-project');
+}
+var db = mongoose.connection;
+
+db.on('error', function(err){
+    console.log('Mongoose Error: ', err);
+});
+
+db.once('open', function() {
+    console.log('Mongoose Connection Successful.');
+})
+
+var note = require('./models/Note.js');
+var headline = require('./models/Headline.js');
+
+var router = requre('./controllers/fetch.js');
+app.use('/', router);
+
+var port = process.env.PORRT || 3000; 
+app.listen(port, function(){
+    console.log("Running on port:" + port);
+});
