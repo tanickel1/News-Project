@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/tanickel1/News-Project/issues"
   },
-  "homepage": "https://github.com/tanickel1/News-Project#readme"
+  "homepage": "https://github.com/tanickel1/News-Project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "handlebars": "^4.0.11",
+    "mongoose": "^5.0.9",
+    "morgan": "^1.9.0"
+  }
 }
